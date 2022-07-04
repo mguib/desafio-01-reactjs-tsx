@@ -12,8 +12,8 @@ import { Task, TaskList } from './components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
-
   const [taskExists, setTaskExists] = useState(false);
+  const [tasksDone, setTasksDone] = useState(0);
 
   function handleAddTask(newTaskTitle: string) {
     const taskWithSameTitle = tasks.find(task => task.title === newTaskTitle)
@@ -35,12 +35,14 @@ function App() {
     const updatedTasks = tasks.map(task => ({ ...task }))
 
     const searhItem = updatedTasks.find(item => item.id === id);
-    if (!searhItem) {
-      return
-    }
+    if (!searhItem) return
 
     searhItem.done = !searhItem.done
     setTasks(updatedTasks)
+
+    const tasksDone = updatedTasks.filter(item => item.done);
+
+    setTasksDone(tasksDone.length)
   }
 
   function handleRemoveTask(id: number) {
@@ -50,10 +52,15 @@ function App() {
     ))
     
     if(tasks.length <= 1){
-      console.log(tasks.length)
       setTaskExists(false)
     }
-    
+
+    if(!tasksDone){
+      setTasksDone(tasksDone)
+    }else{
+      setTasksDone(tasksDone - 1)
+    }
+
   }
 
   return (
@@ -69,14 +76,10 @@ function App() {
                 tasks.length
               }</strong></strong>
             <strong className="text-purple-400">Concluídas <strong className='text-gray-200 ml-2 border rounded-full shadow-inner bg-gray-400 border-none px-[0.50rem] py-[.03rem]'>
-              
               {
-                
-              /* {
-                task 
-                con                              
-              } */}
-
+                // tasks.length <= 0 ? 0 : tasksDone
+                taskExists === false ? 0 : tasksDone
+              }
             </strong></strong>
 
           </div>

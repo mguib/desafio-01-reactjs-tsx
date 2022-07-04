@@ -25,7 +25,7 @@ export function InputForm({addTask}: InputFormProps) {
     return (
         <div className="-mt-14 flex">
             <input
-                className="rounded-lg border bg-gray-500 text-gray-100 border-gray-700 w-[638px] p-4 mr-2 "
+                className="rounded-lg border bg-gray-500 text-gray-100 border-gray-700 w-[638px] p-4 mr-2 focus:ring-blue-500 focus:border-blue-500"
                 type="text"
                 value={task}
                 onChange={handleNewTaskChange}
