@@ -1,0 +1,31 @@
+.inputFomr{
+    border-radius: 8px;
+    border: none;
+    background: var(--gray-500);
+    color: var(--gray-300);
+    width: 39.8rem;
+    padding: 1rem;
+    border: 1px solid var(--gray-700);
+
+    margin-right: 0.5rem;
+}
+
+.buttonForm{
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    background: var(--blue-dark);
+    color: var(--gray-100);
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonForm strong{
+    margin-right: .5rem;
+}
+
+.formControl{
+    margin-top: -4rem;
+    display: flex;
+}
