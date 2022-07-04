@@ -16,22 +16,43 @@
 - [x] Marcar e desmarcar uma tarefa como concluída
 - [x] Remover uma tarefa da listagem
 - [x] Mostrar o progresso de conclusão das tarefas
-<h1 aling="center">
-  <img alt="ToDo List" title="ToDo List" src="./github/Animação.gif" />
-</h1>
 
 
 
 ## Requisitos
-<p>Requisitos</p>
+Antes de começar você vai precisar ter instalado em sua máquina as seguites ferramentas: <a href="https://git-scm.com/">git</a> e <a href="https://nodejs.org/en/">NodeJS</a>.
 
+Além disso é bom ter um editor para trabalhar com o código como <a href="https://code.visualstudio.com/">VsCode</a>.
 ## Aplicacao
-<p>Aplicação</p>
+<h1 align="center">
+  <img alt="ToDo List" title="ToDo List" src="./github/Animação.gif" />
+</h1>
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/mguib/desafio-01-reactjs-tsx.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd desafio-01-reactjs-tsx
+
+# Instale as dependências
+$ yarn
+# OU
+$ npm i
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+```
 
 ## Tecnologias
-<p>Tecnologia</p>
+As seguintes ferramentas foram usadas na constução do projeto:
+- [TypeScript]
+- [React]
+- [Tailwindcss]
+- [TypeScript]
+- [Node.js]
 
 ## Autor
-<p>Autor</p>
+Made with 💜 by Marcos Guibson ✌ [See my LinkedIn](https://www.linkedin.com/in/marcos-guibson-santos-da-silva-0b62321a3/)
 
 
