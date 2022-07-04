@@ -4,7 +4,7 @@ import todoLogo from '../assets/logo-todo.svg';
 
 export function Header(){
     return(
-        <header className="bg-gray-700 flex justify-center items-center pt-8 pb-12">
+        <header className="bg-gray-700 flex w-full justify-center items-center pt-8 pb-12">
             <img src={todoLogo} alt="Logotipo do TodoList" className='h-12 mr-[.75rem] '/>
             <strong className='text-5xl text-blue-400'>
                 to

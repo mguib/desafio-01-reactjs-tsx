@@ -46,64 +46,65 @@ function App() {
   }
 
   function handleRemoveTask(id: number) {
-    
+
     setTasks(oldState => oldState.filter(
       task => task.id != id
     ))
-    
-    if(tasks.length <= 1){
+
+    if (tasks.length <= 1) {
       setTaskExists(false)
     }
 
-    if(!tasksDone){
+    if (!tasksDone) {
       setTasksDone(tasksDone)
-    }else{
+    } else {
       setTasksDone(tasksDone - 1)
     }
-
   }
 
   return (
     <div>
       <Header />
+      <div className='flex items-center justify-center'>
+        <div className="max-w-6xl m-8 px-4 grid items-center justify-center">
+          <InputForm addTask={handleAddTask} />
+          <main>
+            <div className="flex mt-12 mb-3 text-white justify-between">
+              <strong className="text-blue-400">Tarefas criadas <strong className='text-gray-200 ml-2 border rounded-full shadow-inner bg-gray-400 border-none px-[0.50rem] py-[.03rem]'>
+                {
+                  tasks.length
+                }</strong></strong>
+              <strong className="text-purple-400">Concluídas <strong className='text-gray-200 ml-2 border rounded-full shadow-inner bg-gray-400 border-none px-[0.50rem] py-[.03rem]'>
+                {
+                  // tasks.length <= 0 ? 0 : tasksDone
+                  taskExists === false ? 0 : tasksDone
+                }
+              </strong></strong>
 
-      <div className="max-w-6xl m-8 px-4 grid items-start justify-center">
-        <InputForm addTask={handleAddTask} />
-        <main>
-          <div className="flex mt-12 mb-3 text-white justify-between">
-            <strong className="text-blue-400">Tarefas criadas <strong className='text-gray-200 ml-2 border rounded-full shadow-inner bg-gray-400 border-none px-[0.50rem] py-[.03rem]'>
-              {
-                tasks.length
-              }</strong></strong>
-            <strong className="text-purple-400">Concluídas <strong className='text-gray-200 ml-2 border rounded-full shadow-inner bg-gray-400 border-none px-[0.50rem] py-[.03rem]'>
-              {
-                // tasks.length <= 0 ? 0 : tasksDone
-                taskExists === false ? 0 : tasksDone
+            </div>
+
+            <div className="flex flex-col scroll-m-0">
+              {!taskExists ? (
+                <div className="flex flex-col items-center justify-center border-t-2 rounded border-t-gray-400 mt-6 py-16">
+                  <img src={clipboardImg} alt="" className='w-12 h-12 mb-4' />
+                  <strong className='text-gray-300'>Você ainda não tem tarefas cadastradas</strong><p></p>
+                  <p className='text-gray-300'>Crie tarefas e organize seus itens a fazer</p>
+                </div>
+              ) :
+                <div>
+                  <TaskList
+                    tasks={tasks}
+                    toggleTaskDone={handleToggleTaskDone}
+                    removeTask={handleRemoveTask}
+                  />
+                </div>
               }
-            </strong></strong>
-
-          </div>
-
-          <div className="flex flex-col scroll-m-0">
-            {!taskExists ? (
-              <div className="flex flex-col items-center justify-center border-t-2 rounded border-t-gray-400 mt-6 py-16">
-                <img src={clipboardImg} alt="" className='w-12 h-12 mb-4' />
-                <strong className='text-gray-300'>Você ainda não tem tarefas cadastradas</strong><p></p>
-                <p className='text-gray-300'>Crie tarefas e organize seus itens a fazer</p>
-              </div>
-            ) :
-              <div>
-                <TaskList
-                  tasks={tasks}
-                  toggleTaskDone={handleToggleTaskDone}
-                  removeTask={handleRemoveTask}
-                />
-
-              </div>
-            }
-          </div>
-        </main>
+            </div>
+          </main>
+        </div>
       </div>
+
+
     </div>
   )
 }

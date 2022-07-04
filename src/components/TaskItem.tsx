@@ -18,7 +18,7 @@ export function TaskItem({task, removeTask, toggleTaskDone}: TaskItemProps) {
         <div className="flex items-start justify-between w-[736px] box-border py-4 bg-gray-500 rounded-lg px-4 mt-3">
             <div 
                 onClick={() => toggleTaskDone(task.id)}
-                className={classNames("w-6 h-6 mr-3 border-2 border-blue-500 rounded-full flex items-center justify-center",{
+                className={classNames("w-6 h-6 mr-3 border-2 border-blue-400 rounded-full flex items-center justify-center hover:border-blue-500 hover:bg-gray-400 transition-colors",{
                     "bg-purple-500 border-none": task.done,
             })}>
                 {task.done && (
@@ -33,10 +33,16 @@ export function TaskItem({task, removeTask, toggleTaskDone}: TaskItemProps) {
             >
                 {task.title}
             </p>
-            <Trash
-                size={24}
+            <button
+                type="button"
+                className="hover:text-danger-500 transition-colors"
                 onClick={() => removeTask(task.id)}
-            />
+            >
+                <Trash
+                    size={24}
+                />
+            </button>
+            
         </div>
     )
 }
